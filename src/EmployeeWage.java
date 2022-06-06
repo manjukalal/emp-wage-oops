@@ -1,38 +1,48 @@
 public class EmployeeWage {
-    public static void main(String[] args) {
 
-        System.out.println("welcome to employee wage computation program");
+            public static final int emprateperhrs = 20;
+            public static final int empfulltime = 1;
+            public static final int empparttime = 2;
+            public static final int empmaxhrs = 100;
+            public static final int empnoworkingdays = 20;
+            public static void employeeWage() {
 
-        int Rateperhrs = 20;
-        int Fulltime = 1;
-        int Parttime = 2;
-        int empwage = 0;
-        int emphr = 0;
-        int workdays = 20;
-        int totalWage = 0;
+                int emphr = 0;
+                int totalemphrs = 0;
+                int emptotalworkingdays = 0;
+                int empwage = 0;
+                while (totalemphrs <= empmaxhrs && emptotalworkingdays < empnoworkingdays) {
+                    emptotalworkingdays++;
+                    int empcheck = (int) Math.floor(Math.random() * 10) % 3;
 
-        for ( int days = 0; days<=workdays; days++ ) {
-            int empcheck = (int) Math.floor(Math.random() * 10) % 3;
+                    switch (empcheck) {
+                        case 1:
+                            emphr = 4;
+                            break;
 
-            switch (empcheck) {
-                case 1:
-                    emphr = 4;
-                    break;
+                        case 2:
+                            emphr = 8;
+                            break;
 
-                case 2:
-                    emphr = 8;
-                    break;
+                        default:
+                            emphr = 0;
+                    }
+                    totalemphrs += emphr;
 
-                default:
-                    emphr = 0;
-                    break;
+                    System.out.println(emptotalworkingdays + "emphrs" + emphr);
+                }
+                empwage = (emphr * emprateperhrs);
+                System.out.println("per day emp wage for " + emphr + "is:" + empwage);
+                int hrs = totalemphrs * emprateperhrs;
+                System.out.println("total wage for " + totalemphrs + "hrs is :" + hrs);
             }
-            empwage = (emphr * Rateperhrs);
-            totalWage = empwage;
-            System.out.println("day:" +days+ "employee wage is :" +empwage);
+
+            public static void main(String[] args) {
+                employeeWage();
+            }
         }
-        System.out.println("salary is:" +totalWage);
 
 
-    }
-}
+
+
+
