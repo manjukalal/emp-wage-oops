@@ -2,18 +2,29 @@ public class EmployeeWage {
     public static void main(String[] args) {
 
         System.out.println("welcome to employee wage computation program");
-        int fulltime = 1;
-        int parttime = 0;
-        int rateperhour = 20;
-        int emphrs = 0;
-        int mysalary = 0;
-        double empcheck = Math.floor(Math.random() * 10) % 2;
-        if (fulltime == empcheck)
-            emphrs = 8;
-        else if (parttime == empcheck)
-            emphrs = 4;
-        mysalary = (rateperhour * emphrs);
-        System.out.println("salary is:" + mysalary);
+
+        int rateperhrs= 20;
+        int fulltime= 1;
+        int parttime= 2;
+        int empwage= 0;
+        int emphr = 0;
+        int empcheck = (int)Math.floor(Math.random()*10)%3;
+        switch (empcheck)
+        {
+            case 1:
+                emphr = 4;
+                break;
+
+            case 2:
+                emphr = 8;
+                break;
+
+            default:
+                emphr =0;
+                break;
+        }
+        empwage =  ( emphr * rateperhrs );
+        System.out.println ( "salary is:" +empwage );
 
 
     }
