@@ -5,7 +5,8 @@ public class EmployeeWage {
             public static final int empparttime = 2;
             public static final int empmaxhrs = 100;
             public static final int empnoworkingdays = 20;
-            public static void employeeWage() {
+            
+           public static void main(String[] args) {
 
                 int emphr = 0;
                 int totalemphrs = 0;
@@ -37,10 +38,10 @@ public class EmployeeWage {
                 System.out.println("total wage for " + totalemphrs + "hrs is :" + hrs);
             }
 
-            public static void main(String[] args) {
-                employeeWage();
+           
+               
             }
-        }
+        
 
 
 
