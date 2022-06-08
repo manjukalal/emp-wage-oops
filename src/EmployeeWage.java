@@ -1,108 +1,43 @@
 
-
 public class EmployeeWage {
 
-        public static void bridgeLabz(int emprateperhrs, int empnoworkingdays, int empmaxhrs) {
-            int emphr = 0;
-            int totalemphrs = 0;
-            int emptotalworkingdays = 0;
-            int empwage = 0;
-            while (totalemphrs <= empmaxhrs && emptotalworkingdays < empnoworkingdays) {
-                emptotalworkingdays++;
-                int empcheck = (int) Math.floor(Math.random() * 10) % 3;
-                switch (empcheck) {
-                    case 1:
-                        emphr = 4;
-                        break;
+    public static final int IS_PART_TIME = 1;
+    public static final int IS_FULL_TIME = 2;
 
-                    case 2:
-                        emphr = 8;
-                        break;
+    public static int computeEmpWage(String company, int empaRtePerHour, int numofWorkingDays, int maxHoursPerMonth) {
+        int emphrs = 0, totalEmpHrs = 0, totalworkingDays = 0;
+        while (totalEmpHrs <= maxHoursPerMonth && totalworkingDays < numofWorkingDays) {
+            totalworkingDays++;
+            int empcheck = (int) Math.floor(Math.random() * 10) % 3;
+            switch (empcheck) {
+                case 1:
+                    emphrs = 4;
+                    break;
 
-                    default:
-                        emphr = 0;
-                }
-                totalemphrs += emphr;
+                case 2:
+                    emphrs = 8;
+                    break;
 
+                default:
+                    emphrs = 0;
+                    break;
             }
-            empwage = (emphr * emprateperhrs);
-            System.out.println("bridgelabz company wage:");
-            System.out.println("per day emp wage for " + emphr + "is:" + empwage);
-            int hrs = totalemphrs * emprateperhrs;
-            System.out.println("total wage for " + totalemphrs + "hrs is :" + hrs);
-        }
+            totalEmpHrs += emphrs;
+            System.out.println("Day#: " + totalworkingDays + " Emp Hr: " + emphrs);
 
-
-
-        static void gmr(int emprateperhrs, int empnoworkingdays, int empmaxhrs) {
-            int emphr = 0;
-            int totalemphrs = 0;
-            int emptotalworkingdays = 0;
-            int empwage = 0;
-            while (totalemphrs <= empmaxhrs && emptotalworkingdays < empnoworkingdays) {
-                emptotalworkingdays++;
-                int empcheck = (int) Math.floor(Math.random() * 10) % 3;
-                switch (empcheck) {
-                    case 1:
-                        emphr = 4;
-                        break;
-
-                    case 2:
-                        emphr = 8;
-                        break;
-
-                    default:
-                        emphr = 0;
-                }
-                totalemphrs += emphr;
-
-            }
-            empwage = (emphr * emprateperhrs);
-            System.out.println("GMR company wage:");
-            System.out.println("per day emp wage for " + emphr + "is:" + empwage);
-            int hrs = totalemphrs * emprateperhrs;
-            System.out.println("total wage for " + totalemphrs + "hrs is :" + hrs);
-        }
-
-
-
-        static void Tesla(int emprateperhrs, int empnoworkingdays, int empmaxhrs) {
-            int emphr = 0;
-            int totalemphrs = 0;
-            int emptotalworkingdays = 0;
-            int empwage = 0;
-            while (totalemphrs <= empmaxhrs && emptotalworkingdays < empnoworkingdays) {
-                emptotalworkingdays++;
-                int empcheck = (int) Math.floor(Math.random() * 10) % 3;
-                switch (empcheck) {
-                    case 1:
-                        emphr = 4;
-                        break;
-
-                    case 2:
-                        emphr = 8;
-                        break;
-
-                    default:
-                        emphr = 0;
-                }
-                totalemphrs += emphr;
-            }
-            empwage = (emphr * emprateperhrs);
-            System.out.println("Tesla company wage:");
-            System.out.println("per day emp wage for " + emphr + "is:" + empwage);
-            int hrs = totalemphrs * emprateperhrs;
-            System.out.println("total wage for " + totalemphrs + "hrs is :" + hrs);
-        }
-
-
-        public static void main(String[] args)
-        {
-            EmployeeWage wage = new EmployeeWage();
-            wage.bridgeLabz(20, 20, 100);
-            wage.gmr(30,25,120);
-            wage.Tesla(40,30,150);
 
         }
+        int totalEmpWage = totalEmpHrs * empaRtePerHour;
+        System.out.println("total hours per month is:"+totalEmpHrs);
+        System.out.println("Total Emp Wage for Company: " + company + " is: " + totalEmpWage);
+        return totalEmpWage;
+
     }
 
+    public static void main(String[] args) {
+        computeEmpWage("bridgelabz", 20, 20, 100);
+        computeEmpWage("tvs", 30, 25, 120);
+        computeEmpWage("Suzuki", 40, 30, 150);
+    }
+
+}
